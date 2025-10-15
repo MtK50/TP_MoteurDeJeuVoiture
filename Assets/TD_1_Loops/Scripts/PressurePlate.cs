@@ -50,12 +50,12 @@ public class PressurePlate : MonoBehaviour, IPointerClickHandler, IPointerEnterH
     // Exercice 1.2: d�commentez ce code
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // animator.SetBool("Pressed", true);
+        animator.SetBool("Pressed", true);
     }
 
     // Exercice 1.2: d�commentez ce code
     public void OnPointerExit(PointerEventData eventData)
     {
-        // animator.SetBool("Pressed", false);
+        animator.SetBool("Pressed", false);
     }
 }
