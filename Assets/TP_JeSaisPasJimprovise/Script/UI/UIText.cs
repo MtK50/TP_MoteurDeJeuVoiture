@@ -8,7 +8,6 @@ public class UIText : MonoBehaviour
 {
 
     [SerializeField] private TextMeshProUGUI uiText;
-    // Start is called before the first frame update
     void Start()
     {
         UpdateUIText();

@@ -11,10 +11,8 @@ public class BallSpawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger entered");
-        if (other.CompareTag("Player")) // assuming your car has the tag "Player"
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("Car went through the door!");
             SpawnBall();
         }
     }

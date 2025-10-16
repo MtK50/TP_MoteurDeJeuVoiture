@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         CheckPlayerInputs();
@@ -41,7 +40,6 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(respawnKey))
         {
             plT = spawnpoint;
-            // plT.SetLocalPositionAndRotation(spawnpoint.position, spawnpoint.rotation);
         }
         if (Input.GetKeyDown(resetCarKey))
         {

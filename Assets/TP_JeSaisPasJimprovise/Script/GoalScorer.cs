@@ -9,7 +9,6 @@ public class GoalScorer : MonoBehaviour
     [Range(0f, 10f)]
     [SerializeField]  const float confettiDuration = 2f;
 
-    // Start is called before the first frame update
     void Start()
     {
         foreach (var confetti in confettis)
