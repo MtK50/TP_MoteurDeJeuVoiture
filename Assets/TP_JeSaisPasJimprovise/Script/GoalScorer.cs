@@ -19,7 +19,7 @@ public class GoalScorer : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ball"))
+        if (other.CompareTag("Ball") || other.CompareTag("Player"))
         {
             Debug.Log("Goal Scored!");
             StartCoroutine(PlayConfettiForDuration(confettiDuration));

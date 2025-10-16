@@ -5,14 +5,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] public TPCarController player;
+    [SerializeField] public Camera mainCamera;
     private Transform plT;
     [SerializeField] private Transform spawnpoint;
 
     [Header("Key Inputs")]
-    [SerializeField] private KeyCode respawnKey;
-    [SerializeField] private KeyCode resetCarKey;
-    [SerializeField] private KeyCode honkKey;
-    [SerializeField] private KeyCode reverseCameraKey;
+    [SerializeField] public KeyCode respawnKey;
+    [SerializeField] public KeyCode resetCarKey;
+    [SerializeField] public KeyCode honkKey;
+    [SerializeField] public KeyCode reverseCameraKey;
+    [SerializeField] public KeyCode handbrakeKey;
 
 
     void Awake()
@@ -22,6 +24,10 @@ public class GameManager : MonoBehaviour
             player = FindObjectOfType<TPCarController>();
         }
         plT = player.transform;
+        if(mainCamera == null)
+        {
+            mainCamera = FindObjectOfType<Camera>();
+        }
     }
 
     // Update is called once per frame

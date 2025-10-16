@@ -122,11 +122,15 @@ public class TPCarController : MonoBehaviour
     void Brake()
     {
         //Exercice 4.1: appliquer un couple de freinage bas� sur brakeAcceleration, lorsqu'on appuies sur espace, sinon laisser ce couple � 0
-        if (Input.GetKey(KeyCode.Space) || moveInput == 0)
+        if (moveInput < 0)
         {
             foreach (Wheel wheel in wheels)
             {
                 wheel.WheelCollider.brakeTorque = brakeAcceleration;
+            }
+            foreach (Light light in stopLights)
+            {
+                light.enabled = true;
             }
         }
         else
@@ -135,18 +139,6 @@ public class TPCarController : MonoBehaviour
             {
                 wheel.WheelCollider.brakeTorque = 0f;
             }
-        }
-
-
-        if (Input.GetKey(KeyCode.Space) || moveInput < 0)
-        {
-            foreach (Light light in stopLights)
-            {
-                light.enabled = true;
-            }
-        }
-        else if (!Input.GetKey(KeyCode.Space) && moveInput >= 0)
-        {
             foreach (Light light in stopLights)
             {
                 light.enabled = false;
@@ -155,7 +147,7 @@ public class TPCarController : MonoBehaviour
     }
 
     private void HandBrake() {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(gm.handbrakeKey))
         {
             foreach (Wheel wheel in wheels)
             {
@@ -187,8 +179,7 @@ public class TPCarController : MonoBehaviour
     public void ReverseCamera()
     {
 
-
-        Camera cc = GetComponentInChildren<Camera>();
+        Camera cc = gm.mainCamera;
         // C'est degueulasse, j'ai honte mais flemme de galerer encore + désolé
         if (cc != null)
         {
